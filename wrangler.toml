@@ -1,0 +1,5 @@
+name = "acislove-converter"
+compatibility_date = "2026-03-31"
+
+[assets]
+directory = "./dist"
