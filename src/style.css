@@ -1,0 +1,389 @@
+/* ── Animal Crossing Inspired Theme ─────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap");
+
+:root {
+	--bg: #fff8e7;
+	--card-bg: #fff1d6;
+	--card-border: #f0dbb0;
+	--accent: #6bbe5b;
+	--accent-hover: #5aa34a;
+	--accent-dark: #3d7a2e;
+	--brown: #5c4033;
+	--brown-light: #8b6b52;
+	--text: #4a3728;
+	--text-muted: #9a8068;
+	--drop-border: #a8d08d;
+	--drop-bg: #f5f0d8;
+	--drop-active: #e8f5d8;
+	--error: #d45050;
+	--shadow: rgba(90, 60, 30, 0.08);
+	--shadow-lg: rgba(90, 60, 30, 0.12);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	min-height: 100vh;
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+
+header {
+	text-align: center;
+	padding: 2.5rem 1rem 1rem;
+}
+
+header h1 {
+	font-size: 2rem;
+	font-weight: 800;
+	color: var(--brown);
+	letter-spacing: -0.5px;
+}
+
+header h1 span {
+	color: var(--accent);
+}
+
+header p {
+	color: var(--brown-light);
+	font-size: 1rem;
+	margin-top: 0.35rem;
+	font-weight: 600;
+}
+
+/* ── Drop zone ─────────────────────────────────────────────────────────── */
+
+#drop-zone {
+	max-width: 600px;
+	margin: 1.5rem auto;
+	padding: 3rem 2rem;
+	border: 3px dashed var(--drop-border);
+	border-radius: 24px;
+	background: var(--drop-bg);
+	text-align: center;
+	cursor: pointer;
+	transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+#drop-zone:hover {
+	border-color: var(--accent);
+	background: var(--drop-active);
+}
+
+#drop-zone.drag-over {
+	border-color: var(--accent);
+	background: var(--drop-active);
+	transform: scale(1.01);
+}
+
+#drop-zone .icon {
+	font-size: 2.5rem;
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+#drop-zone .label {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: var(--brown);
+}
+
+#drop-zone .sublabel {
+	font-size: 0.85rem;
+	color: var(--text-muted);
+	margin-top: 0.25rem;
+}
+
+#file-input {
+	display: none;
+}
+
+/* ── Error ─────────────────────────────────────────────────────────────── */
+
+#error {
+	max-width: 600px;
+	margin: 0 auto 1rem;
+	padding: 0.85rem 1.25rem;
+	background: #fde8e8;
+	border: 2px solid var(--error);
+	border-radius: 14px;
+	color: var(--error);
+	font-weight: 600;
+	display: none;
+}
+
+#error.visible {
+	display: block;
+}
+
+/* ── Results panel ─────────────────────────────────────────────────────── */
+
+#results {
+	max-width: 960px;
+	margin: 0 auto 3rem;
+	padding: 0 1rem;
+	display: none;
+}
+
+#results.visible {
+	display: block;
+}
+
+.results-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-bottom: 1.25rem;
+}
+
+.results-meta {
+	font-weight: 600;
+	color: var(--brown);
+}
+
+.results-header-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.results-meta .type-badge {
+	display: inline-block;
+	background: var(--accent);
+	color: #fff;
+	font-size: 0.75rem;
+	font-weight: 700;
+	padding: 0.2rem 0.65rem;
+	border-radius: 999px;
+	margin-left: 0.5rem;
+	vertical-align: middle;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-family: inherit;
+	font-size: 0.85rem;
+	font-weight: 700;
+	padding: 0.55rem 1.2rem;
+	border: none;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: background 0.15s, transform 0.1s;
+}
+
+.btn:active {
+	transform: scale(0.97);
+}
+
+.btn-primary {
+	background: var(--accent);
+	color: #fff;
+}
+
+.btn-primary:hover {
+	background: var(--accent-hover);
+}
+
+.btn-sm {
+	font-size: 0.78rem;
+	padding: 0.4rem 0.9rem;
+}
+
+.btn-outline {
+	background: transparent;
+	color: var(--accent-dark);
+	border: 2px solid var(--accent);
+}
+
+.btn-outline:hover {
+	background: var(--accent);
+	color: #fff;
+}
+
+.btn-toggle {
+	background: var(--drop-bg);
+	color: var(--brown-light);
+	border: 2px solid var(--card-border);
+}
+
+.btn-toggle:hover {
+	border-color: var(--accent);
+	color: var(--brown);
+}
+
+.btn-toggle.active {
+	background: var(--accent);
+	color: #fff;
+	border-color: var(--accent);
+}
+
+.btn-toggle.active:hover {
+	background: var(--accent-hover);
+	border-color: var(--accent-hover);
+}
+
+/* ── File sections ─────────────────────────────────────────────────────── */
+
+.file-section {
+	margin-bottom: 1.75rem;
+}
+
+.file-section-header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 2px solid var(--card-border);
+}
+
+.file-section-name {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--brown);
+}
+
+/* ── Pattern grid ──────────────────────────────────────────────────────── */
+
+.pattern-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	gap: 1rem;
+}
+
+.pattern-card {
+	background: var(--card-bg);
+	border: 2px solid var(--card-border);
+	border-radius: 18px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6rem;
+	box-shadow: 0 2px 6px var(--shadow);
+	transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.pattern-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px var(--shadow-lg);
+}
+
+.pattern-card canvas,
+.pro-composite-wrap canvas,
+.pro-split-thumb canvas {
+	image-rendering: pixelated;
+	background-image:
+		linear-gradient(45deg, #ddd 25%, transparent 25%),
+		linear-gradient(-45deg, #ddd 25%, transparent 25%),
+		linear-gradient(45deg, transparent 75%, #ddd 75%),
+		linear-gradient(-45deg, transparent 75%, #ddd 75%);
+	background-size: 16px 16px;
+	background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+	background-color: #eee;
+}
+
+.pattern-card canvas {
+	border-radius: 10px;
+	border: 2px solid var(--card-border);
+}
+
+.pattern-card .card-label {
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: var(--brown);
+	text-align: center;
+	word-break: break-word;
+}
+
+.pattern-card .card-sublabel {
+	font-size: 0.72rem;
+	color: var(--text-muted);
+	font-weight: 600;
+}
+
+/* ── Pro composite section ─────────────────────────────────────────────── */
+
+.pro-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.pro-composite-wrap {
+	background: var(--card-bg);
+	border: 2px solid var(--card-border);
+	border-radius: 18px;
+	padding: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	box-shadow: 0 2px 6px var(--shadow);
+}
+
+.pro-composite-wrap canvas {
+	border-radius: 10px;
+	border: 2px solid var(--card-border);
+}
+
+.pro-splits {
+	display: flex;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.pro-split-thumb {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.3rem;
+}
+
+.pro-split-thumb canvas {
+	border-radius: 6px;
+	border: 1px solid var(--card-border);
+}
+
+.pro-split-thumb .split-label {
+	font-size: 0.68rem;
+	font-weight: 700;
+	color: var(--text-muted);
+	text-transform: capitalize;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+
+footer {
+	text-align: center;
+	padding: 1.5rem 1rem 2rem;
+	font-size: 0.78rem;
+	color: var(--text-muted);
+	font-weight: 600;
+}
+
+footer a {
+	color: var(--accent-dark);
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}

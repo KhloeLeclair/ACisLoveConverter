@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ACIsLove Pattern Converter</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍃</text></svg>" />
+	</head>
+	<body>
+		<header>
+			<h1>🍃 <span>ACIsLove</span> Pattern Converter</h1>
+			<p>
+				Convert .acislove files to ACNH patterns for use with save editors
+			</p>
+		</header>
+
+		<main>
+			<div id="drop-zone">
+				<span class="icon">📁</span>
+				<div class="label">Drop your .acislove file here</div>
+				<div class="sublabel">or click to browse &mdash; multiple files OK</div>
+				<input type="file" id="file-input" accept=".acislove" multiple />
+			</div>
+
+			<div id="error"></div>
+
+			<section id="results">
+				<div class="results-header">
+					<div class="results-meta" id="results-meta"></div>
+					<div class="results-header-actions">
+						<button id="smooth-toggle" class="btn btn-sm btn-toggle">Smoothing: Off</button>
+						<div class="results-actions" id="results-actions"></div>
+					</div>
+				</div>
+				<div id="results-content"></div>
+			</section>
+		</main>
+
+		<footer>
+			Patterns are converted locally in your browser &mdash; nothing is uploaded.
+		</footer>
+
+		<script type="module" src="/src/main.js"></script>
+	</body>
+</html>
